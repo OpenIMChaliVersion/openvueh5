@@ -2,7 +2,7 @@
 # 阶段 1: 构建 (Build Stage)
 # 使用 Node.js 镜像来安装依赖和运行构建命令
 # ==========================================================
-FROM node:18.20.8 AS builder
+FROM node:22.20.0 AS builder
 
 # 设置工作目录
 WORKDIR /app
