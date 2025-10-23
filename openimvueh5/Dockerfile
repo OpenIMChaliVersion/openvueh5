@@ -2,7 +2,7 @@
 # 阶段 1: 构建 (Build Stage)
 # 使用 Node.js 镜像来安装依赖和运行构建命令
 # ==========================================================
-FROM node:22.20.0 AS builder
+FROM node:18.20.8 AS builder
 
 # 设置工作目录
 WORKDIR /app
@@ -12,14 +12,14 @@ WORKDIR /app
 COPY package*.json ./
 
 # 安装依赖
-RUN yarn install --legacy-peer-deps
+RUN npm install --legacy-peer-deps
 
 # 复制所有源代码
 COPY . .
 
 # 运行构建命令，生成静态文件到 dist 目录
 # 确保在构建前修改配置指向正确的 OpenIM Server API
-RUN yarn run build
+RUN npm run build
 
 
 # ==========================================================
