@@ -12,14 +12,14 @@ WORKDIR /app
 COPY package*.json ./
 
 # 安装依赖
-RUN npm install --legacy-peer-deps
+RUN yarn install --legacy-peer-deps
 
 # 复制所有源代码
 COPY . .
 
 # 运行构建命令，生成静态文件到 dist 目录
 # 确保在构建前修改配置指向正确的 OpenIM Server API
-RUN npm run build
+RUN yarn run build
 
 
 # ==========================================================
